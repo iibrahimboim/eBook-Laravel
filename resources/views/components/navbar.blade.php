@@ -92,7 +92,12 @@
             </div>
         </ul>
         <div class="navbar-nav flex-row order-md-last ms-auto">
-            <a href="a" class="btn btn-primary">Masuk</a>
-            <a href="a" class="btn btn-light">Daftar</a>
+            {{-- Auth:check() apakah user sudah login atau belum --}}
+            @if(Auth::check())
+                <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
+                <a href="{{ route('register') }}" class="btn btn-light">Daftar</a>
+            @endif
         </div>
 </header>
